@@ -179,27 +179,8 @@
       "supply": [{ "amount": "7000085297106", "denom": "uSpecter" }]
     },
     "capability": {
-      "index": "3",
-      "owners": [
-        {
-          "index": "1",
-          "index_owners": {
-            "owners": [
-              { "module": "ibc", "name": "ports/transfer" },
-              { "module": "transfer", "name": "ports/transfer" }
-            ]
-          }
-        },
-        {
-          "index": "2",
-          "index_owners": {
-            "owners": [
-              { "module": "ibc", "name": "ports/icahost" },
-              { "module": "icahost", "name": "ports/icahost" }
-            ]
-          }
-        }
-      ]
+      "index": "1",
+      "owners": []
     },
     "crisis": { "constant_fee": { "amount": "1000", "denom": "stake" } },
     "distribution": {
@@ -266,7 +247,13 @@
       "validator_slash_events": []
     },
     "evidence": { "evidence": [] },
+    "example": {
+      "params": {}
+    },
     "feegrant": { "allowances": [] },
+    "genutil": {
+      "gen_txs": []
+    },
     "gov": {
       "deposit_params": {
         "max_deposit_period": "172800s",
@@ -445,13 +432,19 @@
   },
   "chain_id": "specter",
   "consensus_params": {
-    "block": { "max_bytes": "22020096", "max_gas": "-1" },
+    "block": {
+      "max_bytes": "22020096",
+      "max_gas": "-1",
+      "time_iota_ms": "1000"
+    },
     "evidence": {
-      "max_age_duration": "172800000000000",
       "max_age_num_blocks": "100000",
+      "max_age_duration": "172800000000000",
       "max_bytes": "1048576"
     },
-    "validator": { "pub_key_types": ["ed25519"] },
+    "validator": {
+      "pub_key_types": ["ed25519"]
+    },
     "version": {}
   },
   "genesis_time": "2022-11-20T16:58:38.905171793Z",
