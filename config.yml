@@ -12,6 +12,22 @@ accounts:
   - name: allowed3
     coins: ["10000token", "100000000stake"]
     mnemonic: "camera board claw toilet under unknown asset bag obey orphan together attract spell fog night offer curtain visit soda wave candy parade share frame"
+genesis:
+  app_state:
+    crisis:
+      constant_fee:
+        denom: foo
+    gov:
+      deposit_params:
+        min_deposit:
+          - amount: "1"
+            denom: foo
+    mint:
+      params:
+        mint_denom: foo
+    staking:
+      params:
+        bond_denom: foo
 validator:
   name: alice
   staked: "100000000stake"
