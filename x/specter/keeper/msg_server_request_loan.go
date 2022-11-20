@@ -8,6 +8,15 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
+func stringInSlice(a string, list []string) bool {
+	for _, b := range list {
+		if b == a {
+			return true
+		}
+	}
+	return false
+}
+
 func (k msgServer) RequestLoan(goCtx context.Context, msg *types.MsgRequestLoan) (*types.MsgRequestLoanResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
@@ -20,10 +29,14 @@ func (k msgServer) RequestLoan(goCtx context.Context, msg *types.MsgRequestLoan)
 		Borrower:   msg.Creator,
 	}
 
-	// TODO: collateral has to be more than the amount (+fee?)
+	usersWithAbilityToTransact := []string{
+		"cosmos1dmj4q5p62vq9fpum5m2jg54sqv4p7qy4qdefhf", "cosmos1metcp63eg595s7jd3ja089uh70qh6wh8mkznps", "cosmos1sxky6hx50uxs3gdtmmqx4nntgjv5xxnj0w3gne",
+	}
 
-	// moduleAcc := sdk.AccAddress(crypto.AddressHash([]byte(types.ModuleName)))
-	// Get the borrower address
+	if !stringInSlice(msg.Creator, usersWithAbilityToTransact) {
+		panic("Not allowed!")
+	}
+
 	borrower, _ := sdk.AccAddressFromBech32(msg.Creator)
 
 	// Get the collateral as sdk.Coins
