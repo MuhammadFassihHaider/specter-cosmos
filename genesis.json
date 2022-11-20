@@ -364,7 +364,7 @@
       ]
     },
     "specter": { "loanCount": "0", "loanList": [], "params": {} },
-    "staking": { 
+    "staking": {
       "delegations": [
         {
           "delegator_address": "cosmos18l596e0ldaakwyvfs3plpnelt79x9c3w6etus3",
