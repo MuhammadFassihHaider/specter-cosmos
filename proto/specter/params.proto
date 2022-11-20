@@ -1,0 +1,12 @@
+syntax = "proto3";
+package specter.specter;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "specter/x/specter/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (gogoproto.goproto_stringer) = false;
+  
+}

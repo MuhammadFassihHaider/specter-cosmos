@@ -1,8 +1,10 @@
 // THIS FILE IS GENERATED AUTOMATICALLY. DO NOT MODIFY.
 
+import SpecterSpecter from './specter.specter'
 
 
 export default { 
+  SpecterSpecter: load(SpecterSpecter, 'specter.specter'),
   
 }
 

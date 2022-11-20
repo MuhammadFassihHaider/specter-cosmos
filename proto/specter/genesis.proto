@@ -1,0 +1,17 @@
+syntax = "proto3";
+package specter.specter;
+
+import "gogoproto/gogo.proto";
+import "specter/params.proto";
+import "specter/loan.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "specter/x/specter/types";
+
+// GenesisState defines the specter module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  repeated Loan loanList = 2 [(gogoproto.nullable) = false];
+  uint64 loanCount = 3;
+  // this line is used by starport scaffolding # genesis/proto/state
+}
