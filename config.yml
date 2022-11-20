@@ -1,16 +1,16 @@
 accounts:
   - name: alice
-    coins: ["20000token", "200000000stake"]
+    coins: ["2000000000000uSpecter"]
   - name: bob
-    coins: ["10000token", "100000000stake"]
+    coins: ["1000000000000uSpecter"]
   - name: allowed1
-    coins: ["10000token", "100000000stake"]
+    coins: ["1000000000000uSpecter"]
     mnemonic: "excuse stuff pig actress entire carbon fossil similar enact crime desert essay suspect tortoise hand valid trophy suspect tuna deliver prevent biology island face"
   - name: allowed2
-    coins: ["10000token", "100000000stake"]
+    coins: ["1000000000000uSpecter"]
     mnemonic: "crucial beyond salt daughter income cheese jeans retreat tobacco illness educate tiny more devote elder cheese more crush label field question timber rent video"
   - name: allowed3
-    coins: ["10000token", "100000000stake"]
+    coins: ["1000000000000uSpecter"]
     mnemonic: "camera board claw toilet under unknown asset bag obey orphan together attract spell fog night offer curtain visit soda wave candy parade share frame"
 genesis:
   app_state:
