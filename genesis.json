@@ -267,7 +267,6 @@
     },
     "evidence": { "evidence": [] },
     "feegrant": { "allowances": [] },
-    "genutil": { "gen_txs": [] },
     "gov": {
       "deposit_params": {
         "max_deposit_period": "172800s",
