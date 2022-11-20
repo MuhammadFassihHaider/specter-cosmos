@@ -430,7 +430,7 @@
     "upgrade": {},
     "vesting": {}
   },
-  "chain_id": "specter",
+  "chain_id": "specter-1",
   "consensus_params": {
     "block": {
       "max_bytes": "22020096",
