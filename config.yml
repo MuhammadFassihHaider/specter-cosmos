@@ -14,20 +14,63 @@ accounts:
     mnemonic: "camera board claw toilet under unknown asset bag obey orphan together attract spell fog night offer curtain visit soda wave candy parade share frame"
 genesis:
   app_state:
-    crisis:
-      constant_fee:
-        denom: foo
+    bank:
+      denom_metadata:
+        - base: uSpecter
+          denom_units:
+            - aliases:
+                - millispecter
+              denom: uSpecter
+              exponent: "0"
+            - aliases:
+                - microspecter
+              denom: mspecter
+              exponent: "3"
+            - denom: specter
+              exponent: "6"
+          description: The gas token of AI
+          display: specter
+          name: SpecterToken
+          symbol: SPECTER
+    mint:
+      minter:
+        inflation: "0.070000000000000000"
+        annual_provisions: "0.000000000000000000"
+      params:
+        mint_denom: uSpecter
+        inflation_rate_change: "0.5"
+        inflation_max: "0.115000000000000000"
+        inflation_min: "0.070000000000000000"
+        goal_bonded: "0.670000000000000000"
+        blocks_per_year: "6311520"
     gov:
+      starting_proposal_id: "1"
+      deposits: null
+      votes: null
+      proposals: null
       deposit_params:
         min_deposit:
-          - amount: "1"
-            denom: foo
-    mint:
+          - denom: uatom
+            amount: "2500000000000"
+        max_deposit_period: "48h"
+      voting_params:
+        voting_period: "72h"
+      tally_params:
+        quorum: "0.33"
+        threshold: "0.5"
+    slashing:
       params:
-        mint_denom: foo
+        signed_blocks_window: "30000"
+        min_signed_per_window: "0.050000000000000000"
+        downtime_jail_duration: "10m"
+        slash_fraction_double_sign: "0.050000000000000000"
+        slash_fraction_downtime: "0.000100000000000000"
     staking:
       params:
-        bond_denom: foo
+        unbonding_time: "336h"
+        max_validators: 50
+        max_entries: 7
+        bond_denom: uspecter
 validator:
   name: alice
   staked: "100000000stake"
