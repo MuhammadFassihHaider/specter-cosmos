@@ -1,113 +1,109 @@
+version: 1
+build:
+  proto:
+    path: proto
+    third_party_paths:
+    - third_party/proto
+    - proto_vendor
 accounts:
-  - name: alice
-    coins: ["2000000000000uSpecter"]
-  - name: bob
-    coins: ["1000000000000uSpecter"]
-  - name: foo
-    coins: ["1000000000000uSpecter"]
-  - name: allowed1
-    coins: ["1000000000000uSpecter"]
-    mnemonic: "excuse stuff pig actress entire carbon fossil similar enact crime desert essay suspect tortoise hand valid trophy suspect tuna deliver prevent biology island face"
-  - name: allowed2
-    coins: ["1000000000000uSpecter"]
-    mnemonic: "crucial beyond salt daughter income cheese jeans retreat tobacco illness educate tiny more devote elder cheese more crush label field question timber rent video"
-  - name: allowed3
-    coins: ["1000000000000uSpecter"]
-    mnemonic: "camera board claw toilet under unknown asset bag obey orphan together attract spell fog night offer curtain visit soda wave candy parade share frame"
+- name: alice
+  coins:
+  - 2000000000000uSpecter
+- name: bob
+  coins:
+  - 1000000000000uSpecter
+- name: foo
+  coins:
+  - 1000000000000uSpecter
+- name: allowed1
+  coins:
+  - 1000000000000uSpecter
+  mnemonic: excuse stuff pig actress entire carbon fossil similar enact crime desert
+    essay suspect tortoise hand valid trophy suspect tuna deliver prevent biology
+    island face
+- name: allowed2
+  coins:
+  - 1000000000000uSpecter
+  mnemonic: crucial beyond salt daughter income cheese jeans retreat tobacco illness
+    educate tiny more devote elder cheese more crush label field question timber rent
+    video
+- name: allowed3
+  coins:
+  - 1000000000000uSpecter
+  mnemonic: camera board claw toilet under unknown asset bag obey orphan together
+    attract spell fog night offer curtain visit soda wave candy parade share frame
+faucet:
+  name: bob
+  coins:
+  - 5uSpecter
+  - 100000uSpecter
+  host: 0.0.0.0:4500
+client:
+  typescript:
+    path: ts-client
+  vuex:
+    path: vue/src/store
+  openapi:
+    path: docs/static/openapi.yml
 genesis:
   app_state:
     bank:
       denom_metadata:
-        - base: uSpecter
-          denom_units:
-            - aliases:
-                - millispecter
-              denom: uSpecter
-              exponent: "0"
-            - aliases:
-                - microspecter
-              denom: mspecter
-              exponent: "3"
-            - denom: specter
-              exponent: "6"
-          description: The gas token of AI
-          display: specter
-          name: SpecterToken
-          symbol: SPECTER
-    mint:
-      minter:
-        inflation: "0.070000000000000000"
-        annual_provisions: "0.000000000000000000"
-      params:
-        mint_denom: uSpecter
-        inflation_rate_change: "0.5"
-        inflation_max: "0.115000000000000000"
-        inflation_min: "0.070000000000000000"
-        goal_bonded: "0.670000000000000000"
-        blocks_per_year: "6311520"
+      - base: uSpecter
+        denom_units:
+        - aliases:
+          - millispecter
+          denom: uSpecter
+          exponent: "0"
+        - aliases:
+          - microspecter
+          denom: mspecter
+          exponent: "3"
+        - denom: specter
+          exponent: "6"
+        description: The gas token of AI
+        display: specter
+        name: SpecterToken
+        symbol: SPECTER
     gov:
-      starting_proposal_id: "1"
-      deposits: null
-      votes: null
-      proposals: null
       deposit_params:
+        max_deposit_period: 48h
         min_deposit:
-          - denom: uatom
-            amount: "2500000000000"
-        max_deposit_period: "48h"
-      voting_params:
-        voting_period: "72h"
+        - amount: "2500000000000"
+          denom: uatom
+      deposits: null
+      proposals: null
+      starting_proposal_id: "1"
       tally_params:
         quorum: "0.33"
         threshold: "0.5"
+      votes: null
+      voting_params:
+        voting_period: 72h
+    mint:
+      minter:
+        annual_provisions: "0.000000000000000000"
+        inflation: "0.070000000000000000"
+      params:
+        blocks_per_year: "6311520"
+        goal_bonded: "0.670000000000000000"
+        inflation_max: "0.115000000000000000"
+        inflation_min: "0.070000000000000000"
+        inflation_rate_change: "0.5"
+        mint_denom: uSpecter
     slashing:
       params:
-        signed_blocks_window: "30000"
+        downtime_jail_duration: 10m
         min_signed_per_window: "0.050000000000000000"
-        downtime_jail_duration: "10m"
+        signed_blocks_window: "30000"
         slash_fraction_double_sign: "0.050000000000000000"
         slash_fraction_downtime: "0.000100000000000000"
     staking:
       params:
-        unbonding_time: "336h"
-        max_validators: 50
-        max_entries: 7
         bond_denom: uSpecter
-validator:
-  name: alice
-  staked: "100000000uSpecter"
-  name: bob
-  staked: "100000000uSpecter"
-  name: foo
-  staked: "100000000uSpecter"
-client:
-  openapi:
-    path: "docs/static/openapi.yml"
-  typescript:
-    path: "ts-client"
-  vuex:
-    path: "vue/src/store"
-faucet:
-  name: bob
-  coins: ["5uSpecter", "100000uSpecter"]
-
-
-
-# accounts:
-#   - name: alice
-#     coins: ["20000token", "200000000stake"]
-#   - name: bob
-#     coins: ["10000token", "100000000stake"]
-# validator:
-#   name: alice
-#   staked: "100000000stake"
-# client:
-#   openapi:
-#     path: "docs/static/openapi.yml"
-#   typescript:
-#     path: "ts-client"
-#   vuex:
-#     path: "vue/src/store"
-# faucet:
-#   name: bob
-#   coins: ["5token", "100000stake"]
+        max_entries: 7
+        max_validators: 50
+        unbonding_time: 336h
+validators:
+- name: foo
+  bonded: 100000000uSpecter
