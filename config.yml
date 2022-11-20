@@ -70,7 +70,7 @@ genesis:
         unbonding_time: "336h"
         max_validators: 50
         max_entries: 7
-        bond_denom: uspecter
+        bond_denom: uSpecter
 validator:
   name: alice
   staked: "100000000stake"
